@@ -166,7 +166,7 @@ All processed events and transfer outcomes are recorded to provide traceability 
     "transaction_id": "txn_987654",
     "account_id": "clearing_account",
     "amount": 500000,
-    "currency": "USD",
+    "currency": "ZMW",
     "status": "completed"
   }
 }
@@ -179,7 +179,7 @@ All processed events and transfer outcomes are recorded to provide traceability 
 Incoming Amount:
 
 ```text
-500,000 cents
+500,000 ZMW
 ```
 
 Default Allocation Rule:
