@@ -292,6 +292,7 @@ The allocation logic is isolated so that more sophisticated rules can be introdu
 Potential enhancements include:
 
 * Kafka-based event streaming
+* Change Data Capture (CDC) with Debezium
 * Redis distributed locking
 * Dead-letter queue support
 * Dynamic allocation rules
