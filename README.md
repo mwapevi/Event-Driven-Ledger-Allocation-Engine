@@ -179,7 +179,7 @@ All processed events and transfer outcomes are recorded to provide traceability 
 Incoming Amount:
 
 ```text
-> 500,000 ZMW
+500,000 ZMW
 ```
 
 Default Allocation Rule:
