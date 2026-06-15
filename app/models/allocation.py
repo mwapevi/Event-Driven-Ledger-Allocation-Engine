@@ -7,9 +7,12 @@ class Allocation(Base):
 
     id = Column(Integer, primary_key=True)
     event_id = Column(String, nullable=False)
-    bucket = Column(String, nullable=False)
+
+    account = Column(String, nullable=False)  # ✅ ADD THIS
+
     amount = Column(Numeric(12, 2), nullable=False)
+
     transfer_id = Column(UUID(as_uuid=True))
     status = Column(String)
-    created_at = Column(DateTime)
 
+    created_at = Column(DateTime, default=datetime.utcnow)

@@ -1,8 +1,7 @@
-#from app.config import ALLOCATIONS
 from app.config import settings
 
-def allocate(amount: float):
+def allocate(amount: float) -> dict:
     return {
-        bucket: round(amount * ratio, 2)
-        for bucket, ratio in settings.ALLOCATIONS.items()
+        account: round(amount * ratio, 2)
+        for account, ratio in settings.ALLOCATIONS.items()
     }

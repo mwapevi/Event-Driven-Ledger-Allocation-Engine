@@ -1,7 +1,6 @@
 from app.services.allocation_engine import allocate
 from app.services.transfer_client import TransferClient
 from app.services.idempotency import is_duplicate, mark_processed
-
 from app.models.event import Event
 from app.models.transfer import Transfer
 from app.models.allocation import Allocation   # <-- NEW
@@ -10,8 +9,6 @@ from datetime import datetime
 
 created_at = datetime.now(UTC)
 from datetime import datetime
-
-
 
 BUCKET_MAP = {
     "ACCOUNT A": "ACCOUNT A",
@@ -45,13 +42,13 @@ def process_event(db, event):
     transfers = []
 
     # 4. Create transfers + persist them
-    for bucket, amount in allocations.items():
+    for account, amount in allocations.items():
         if amount <= 0:
             continue
 
         result = client.create_book_transfer(
             source="clearing_account",
-            destination=BUCKET_MAP[bucket],
+            destination=BUCKET_MAP[account],
             amount=amount
         )
 
@@ -66,7 +63,7 @@ def process_event(db, event):
         # NEW: Allocation record
         db_allocation = Allocation(
             event_id=event.event_id,
-            bucket=bucket,
+            account=account,
             amount=amount,
             transfer_id=result.get("transfer_id"),
             status=result.get("status"),
@@ -75,7 +72,7 @@ def process_event(db, event):
         db.add(db_allocation)
 
         transfers.append({
-            "bucket": bucket,
+            "account": account,
             "amount": amount,
             "transfer": result
         })
