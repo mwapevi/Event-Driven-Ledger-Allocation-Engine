@@ -127,6 +127,16 @@ Audit & Reconciliation Store
 
 ---
 
+## Tech Stack
+
+* Python 3.12
+* FastAPI
+* PostgreSQL
+* SQLAlchemy
+* Docker
+* Pytest
+* HTTP client (Requests / httpx)
+  
 ## Key Components
 
 ### Webhook Processing
