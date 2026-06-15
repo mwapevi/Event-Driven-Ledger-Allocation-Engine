@@ -1,24 +1,29 @@
-import httpx
+import uuid
+import logging
+import time
 
 
 class TransferClient:
 
-    def __init__(
-        self,
-        base_url: str
-    ):
-        self.base_url = base_url
+    def create_book_transfer(self, source, destination, amount, retries=3):
+        for attempt in range(retries):
+            try:
+                transfer_id = str(uuid.uuid4())
+               
 
-    async def transfer(
-        self,
-        source_account,
-        destination_account,
-        amount
-    ):
+                logging.info(
+                    f"[TRANSFER attempt={attempt+1}] {source} → {destination} | {amount}"
+                )
 
-        return {
-            "source": source_account,
-            "destination": destination_account,
-            "amount": amount,
-            "status": "success"
-        }
+                return {
+                    "transfer_id": transfer_id,
+                    "status": "success"
+                }
+
+            except Exception as e:
+                logging.error(f"Transfer failed: {e}")
+
+                if attempt == retries - 1:
+                    raise
+
+                time.sleep(2 ** attempt)

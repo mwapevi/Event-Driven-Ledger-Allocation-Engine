@@ -1,13 +1,14 @@
 from fastapi import FastAPI
-from app.routes.webhook import router
+from app.routes.webhook import router as webhook_router
 
 app = FastAPI(
-    title="Event Driven Ledger Allocation Engine"
+    title="Ledger Allocation Engine",
+    version="1.0.0",
+    description="Event-Driven Ledger Allocation Service"
 )
 
-app.include_router(router)
+app.include_router(webhook_router)
 
-
-@app.get("/health")
+@app.get("/")
 def health():
-    return {"status": "healthy"}
+    return {"status": "Ledger Allocation Engine running..."}

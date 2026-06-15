@@ -1,1 +1,14 @@
+__pycache__/
+*.pyc
+.env
 
+# Virtual environments
+.venv/
+venv/
+
+# Local databases
+ledger_allocation_engine.db
+allocation.db
+
+# Local Python installation
+Python-3.12.11/

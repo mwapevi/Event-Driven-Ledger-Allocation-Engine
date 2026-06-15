@@ -169,17 +169,13 @@ All processed events and transfer outcomes are recorded to provide traceability 
 
 ```json
 {
-  "event_id": "evt_123456",
-  "event_type": "payment.completed",
-  "timestamp": "2026-06-01T10:30:00Z",
-  "data": {
-    "transaction_id": "txn_987654",
-    "account_id": "clearing_account",
-    "amount": 500000,
-    "currency": "ZMW",
-    "status": "completed"
-  }
+  "event_type": "deposit",
+  "event_id": "evt_177",
+  "amount": 500000,
+  "account_id": "clearing_123",
+  "timestamp": "2026-06-12T10:00:00Z"
 }
+
 ```
 
 ---

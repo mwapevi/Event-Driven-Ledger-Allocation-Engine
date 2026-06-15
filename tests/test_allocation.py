@@ -1,10 +1,14 @@
-from app.services.allocation_engine import allocate
+from app.services.allocation_engine \
+import calculate_allocations
 
+def test_allocations():
 
-def test_equal_distribution():
+    result = calculate_allocations(
+        1000
+    )
 
-    result = allocate(500000)
-
-    assert sum(result) == 500000
-
-    assert len(result) == 5
+    assert result["profit"] == 50
+    assert result["ownerpay"] == 500
+    assert result["tax"] == 150
+    assert result["opex"] == 250
+    assert result["growth"] == 50

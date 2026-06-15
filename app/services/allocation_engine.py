@@ -1,17 +1,8 @@
-def allocate(amount: int):
+#from app.config import ALLOCATIONS
+from app.config import settings
 
-    share = amount // 5
-
-    allocations = [
-        share,
-        share,
-        share,
-        share,
-        share,
-    ]
-
-    remainder = amount - sum(allocations)
-
-    allocations[0] += remainder
-
-    return allocations
+def allocate(amount: float):
+    return {
+        bucket: round(amount * ratio, 2)
+        for bucket, ratio in settings.ALLOCATIONS.items()
+    }
