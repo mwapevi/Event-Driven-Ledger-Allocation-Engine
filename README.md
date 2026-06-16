@@ -1,5 +1,13 @@
 # Event-Driven Ledger Allocation Engine
 
+![Tests](https://github.com/mwapevi/Event-Driven-Ledger-Allocation-Engine/actions/workflows/test.yml/badge.svg)
+![Python](https://img.shields.io/badge/python-3.12-blue)
+![FastAPI](https://img.shields.io/badge/FastAPI-API-green)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Database-blue)
+![License](https://img.shields.io/badge/license-MIT-yellow)
+
+Backend system that processes incoming payment events and automatically allocates funds across internal ledger accounts.
+
 ## Overview
 
 This project is a backend system that simulates how a financial platform might process incoming payment events and distribute funds across multiple internal ledger accounts.
