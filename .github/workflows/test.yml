@@ -31,6 +31,7 @@ jobs:
 
     env:
       DATABASE_URL: postgresql://postgres:postgres@localhost:5432/ledger_test
+      PYTHONPATH: .
 
     steps:
       - name: Checkout code
