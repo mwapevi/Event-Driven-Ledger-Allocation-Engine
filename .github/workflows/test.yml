@@ -1,64 +1,78 @@
 name: Test Suite
 
 on:
-  push:
-    branches:
-      - main
-      - develop
-  pull_request:
-    branches:
-      - main
-      - develop
+push:
+branches:
+- main
+- develop
+pull_request:
+branches:
+- main
+- develop
+
+permissions:
+contents: read
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
+test:
+name: Run Tests & Coverage
+runs-on: ubuntu-latest
 
-    services:
-      postgres:
-        image: postgres:16
-        env:
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: postgres
-          POSTGRES_DB: ledger_test
-        ports:
-          - 5432:5432
-        options: >-
-          --health-cmd="pg_isready -U postgres"
-          --health-interval=10s
-          --health-timeout=5s
-          --health-retries=5
-
+```
+services:
+  postgres:
+    image: postgres:16
     env:
-      DATABASE_URL: postgresql://postgres:postgres@localhost:5432/ledger_test
-      PYTHONPATH: .
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: ledger_test
+    ports:
+      - 5432:5432
+    options: >-
+      --health-cmd="pg_isready -U postgres"
+      --health-interval=10s
+      --health-timeout=5s
+      --health-retries=5
 
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+env:
+  DATABASE_URL: postgresql://postgres:postgres@localhost:5432/ledger_test
+  PYTHONPATH: .
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
+steps:
+  - name: Checkout repository
+    uses: actions/checkout@v4
 
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
-          pip install pytest-cov
+  - name: Set up Python
+    uses: actions/setup-python@v5
+    with:
+      python-version: "3.12"
+      cache: "pip"
 
-      - name: Run tests with coverage
-        run: |
-          pytest -v \
-            --cov=app \
-            --cov-branch \
-            --cov-report=term-missing \
-            --cov-report=xml
+  - name: Install dependencies
+    run: |
+      python -m pip install --upgrade pip
+      pip install -r requirements.txt
+      pip install pytest pytest-cov
 
-      - name: Upload coverage report
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: coverage-report
-          path: coverage.xml
+  - name: Run tests with coverage
+    run: |
+      pytest -v \
+        --cov=app \
+        --cov-branch \
+        --cov-report=term-missing \
+        --cov-report=xml:coverage.xml
+
+  - name: Upload coverage to Codecov
+    uses: codecov/codecov-action@v5
+    with:
+      token: ${{ secrets.CODECOV_TOKEN }}
+      files: ./coverage.xml
+      fail_ci_if_error: true
+
+  - name: Upload coverage artifact
+    if: always()
+    uses: actions/upload-artifact@v4
+    with:
+      name: coverage-report
+      path: coverage.xml
+      retention-days: 14
