@@ -6,19 +6,23 @@ load_dotenv()
 
 
 class Settings(BaseModel):
-    DATABASE_URL: str | None = os.getenv("DATABASE_URL")
+    #DATABASE_URL: str | None = os.getenv("DATABASE_URL")
+    DATABASE_URL: str = os.getenv(
+    "DATABASE_URL",
+    "sqlite:///allocation.db"
+)
 
     COLUMN_API_KEY: str | None = os.getenv("COLUMN_API_KEY")
     COLUMN_BASE_URL: str | None = os.getenv("COLUMN_BASE_URL")
 
     CLEARING_ACCOUNT_ID: str | None = os.getenv("CLEARING_ACCOUNT_ID")
 
-    ALLOCATIONS: dict = {
-        "ACCOUNT A": float(os.getenv("ACCOUNT A", 0.2)),
-        "ACCOUNT B": float(os.getenv("ACCOUNT B", 0.2)),
-        "ACCOUNT C": float(os.getenv("ACCOUNT C", 0.2)),
-        "ACCOUNT D": float(os.getenv("ACCOUNT D", 0.2)),
-        "ACCOUNT E": float(os.getenv("ACCOUNT E", 0.2)),
+    ALLOCATIONS: dict[str, float] = {
+        "ACCOUNT_A": float(os.getenv("ACCOUNT_A", "0.2")),
+        "ACCOUNT_B": float(os.getenv("ACCOUNT_B", "0.2")),
+        "ACCOUNT_C": float(os.getenv("ACCOUNT_C", "0.2")),
+        "ACCOUNT_D": float(os.getenv("ACCOUNT_D", "0.2")),
+        "ACCOUNT_E": float(os.getenv("ACCOUNT_E", "0.2")),
     }
 
 

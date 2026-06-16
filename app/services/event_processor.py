@@ -11,11 +11,11 @@ created_at = datetime.now(UTC)
 from datetime import datetime
 
 BUCKET_MAP = {
-    "ACCOUNT A": "ACCOUNT A",
-    "ACCOUNT B": "ACCOUNT B",
-    "ACCOUNT C": "ACCOUNT C",
-    "ACCOUNT D": "ACCOUNT D",
-    "ACCOUNT E": "ACCOUNT E",
+    "ACCOUNT_A": "ACCOUNT_A",
+    "ACCOUNT_B": "ACCOUNT_B",
+    "ACCOUNT_C": "ACCOUNT_C",
+    "ACCOUNT_D": "ACCOUNT_D",
+    "ACCOUNT_E": "ACCOUNT_E",
 }
 
 

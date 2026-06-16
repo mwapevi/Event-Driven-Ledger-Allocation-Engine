@@ -8,7 +8,7 @@ class Allocation(Base):
     id = Column(Integer, primary_key=True)
     event_id = Column(String, nullable=False)
 
-    account = Column(String, nullable=False)  # ✅ ADD THIS
+    account = Column(String, nullable=False)  
 
     amount = Column(Numeric(12, 2), nullable=False)
 
