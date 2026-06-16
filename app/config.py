@@ -4,7 +4,6 @@ from pydantic import BaseModel
 
 load_dotenv()
 
-
 class Settings(BaseModel):
    
     DATABASE_URL: str = os.getenv(
