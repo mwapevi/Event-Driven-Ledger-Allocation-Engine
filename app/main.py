@@ -18,3 +18,7 @@ def health():
 @app.get("/ready")
 def ready():
     return {"status": "ready"}
+
+@app.get("/")
+def root():
+    return {"message": "Welcome to Ledger Allocation Engine"}
