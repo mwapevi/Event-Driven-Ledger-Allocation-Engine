@@ -160,7 +160,7 @@ Idempotency is enforced using the event_id. In this implementation, processed ev
 
 The allocation engine is responsible for calculating how incoming funds should be distributed across internal ledger accounts.
 
-The default implementation performs an equal split across five accounts.
+The current implementation demonstrates allocation using configurable percentage-based rules. A simplified equal-distribution strategy is included as the default example.
 
 ### Transfer Client
 
