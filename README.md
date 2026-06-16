@@ -1,6 +1,6 @@
 # Event-Driven Ledger Allocation Engine
 
-![Tests](https://github.com/mwapevi/Event-Driven-Ledger-Allocation-Engine/.github/workflows/test.yml/badge.svg)
+![Tests](https://github.com/mwapevi/Event-Driven-Ledger-Allocation-Engine/actions/workflows/test.yml/badge.svg)
 ![Python](https://img.shields.io/badge/python-3.12-blue)
 ![FastAPI](https://img.shields.io/badge/FastAPI-API-green)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Database-blue)
