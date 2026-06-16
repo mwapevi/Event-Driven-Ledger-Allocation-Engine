@@ -6,7 +6,7 @@ load_dotenv()
 
 
 class Settings(BaseModel):
-    #DATABASE_URL: str | None = os.getenv("DATABASE_URL")
+   
     DATABASE_URL: str = os.getenv(
     "DATABASE_URL",
     "sqlite:///allocation.db"
