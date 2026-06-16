@@ -130,7 +130,7 @@ Audit & Reconciliation Store
 │   └── test_idempotency.py
 │
 └── docs/
-    ├──architecture.md
+    ├── architecture.md
     └── api_examples.md
     └── test-results
         └── Application_Status-Screenshots
