@@ -2,9 +2,13 @@ name: Test Suite
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
+      - develop
   pull_request:
-    branches: [main]
+    branches:
+      - main
+      - develop
 
 jobs:
   test:
@@ -29,9 +33,11 @@ jobs:
       DATABASE_URL: postgresql://postgres:postgres@localhost:5432/ledger_test
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-      - uses: actions/setup-python@v5
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
           python-version: "3.12"
 
@@ -42,11 +48,11 @@ jobs:
 
       - name: Run tests
         run: |
-          pytest -v --junitxml=test-results.xml
+          pytest -v
 
       - name: Upload test results
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: test-results
-          path: test-results.xml
+          path: .
