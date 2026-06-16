@@ -12,3 +12,6 @@ allocation.db
 
 # Local Python installation
 Python-3.12.11/
+
+#Generated file
+.coverage
