@@ -4,6 +4,7 @@
 ![Python](https://img.shields.io/badge/python-3.12-blue)
 ![FastAPI](https://img.shields.io/badge/FastAPI-API-green)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Database-blue)
+![Coverage](https://img.shields.io/badge/coverage-100%25-brightgreen)
 ![License](https://img.shields.io/badge/license-MIT-yellow)
 
 Backend system that processes incoming payment events and automatically allocates funds across internal ledger accounts.
