@@ -1,3 +1,18 @@
+## Table of Contents
+
+- Overview
+- Why I Built This
+- System Flow
+- Project Structure
+- Tech Stack
+- API Documentation
+- Running Locally
+- Running Tests
+- Screenshots
+- Design Decisions
+- Future Improvements
+
+
 # Event-Driven Ledger Allocation Engine
 
 ![Tests](https://github.com/mwapevi/Event-Driven-Ledger-Allocation-Engine/actions/workflows/test.yml/badge.svg)
@@ -178,12 +193,13 @@ All processed events and transfer outcomes are recorded to provide traceability 
 
 ## Example Event Payload
 
- ### API Documentation
+## API Documentation
 
 Available locally after startup:
 
 ```text
 http://localhost:8000/docs
+```
 
 ### Endpoint
 
