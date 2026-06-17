@@ -176,7 +176,7 @@ All processed events and transfer outcomes are recorded to provide traceability 
 
 ## Example Event Payload
 
-```json request body
+```json
 {
   "event_type": "deposit",
   "event_id": "evt_21000",
