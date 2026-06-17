@@ -185,7 +185,7 @@ All processed events and transfer outcomes are recorded to provide traceability 
   "timestamp": "2026-06-12T10:00:00Z"
 }
 
-```json response body
+response body
 {
   "event_id": "evt_21000",
   "allocations": {
