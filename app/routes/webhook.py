@@ -18,14 +18,14 @@ def get_db():
         db.close()
 
 @router.post("/events")
-def column_webhook(
+def process_event_webhook(
     payload: ColumnWebhook,
     db: Session = Depends(get_db)
 ):
     return process_event(db, payload)
 
 @router.post("/deposit")
-def deposit(payload: DepositWebhook):
+def process_deposit_webhook(payload: DepositWebhook):
     return {
         "received": payload.amount,
         "source": payload.source
