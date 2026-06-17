@@ -176,7 +176,12 @@ All processed events and transfer outcomes are recorded to provide traceability 
 
 ## Example Event Payload
 
-http://127.0.0.1:8000/docs
+ ### API Documentation
+
+Available locally after startup:
+
+```text
+http://localhost:8000/docs
 
 ### Endpoint
 
