@@ -385,9 +385,9 @@ Potential enhancements include:
 
 ## Disclaimer
 
-This project is a portfolio demonstration of backend patterns commonly used in financial systems.
+This project was developed independently as a personal portfolio and learning exercise to demonstrate backend engineering concepts commonly found in financial systems.
 
-It does not process real funds, connect to banking networks, or interact with production payment providers.
+It does not process real funds, connect to banking networks, interact with production payment providers, or represent any real financial institution.
 
 ---
 
