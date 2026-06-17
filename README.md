@@ -1,18 +1,3 @@
-## Table of Contents
-
-- Overview
-- Why I Built This
-- System Flow
-- Project Structure
-- Tech Stack
-- API Documentation
-- Running Locally
-- Running Tests
-- Screenshots
-- Design Decisions
-- Future Improvements
-
-
 # Event-Driven Ledger Allocation Engine
 
 ![Tests](https://github.com/mwapevi/Event-Driven-Ledger-Allocation-Engine/actions/workflows/test.yml/badge.svg)
@@ -31,6 +16,21 @@ Backend system that processes incoming payment events and automatically allocate
 - Swagger/OpenAPI documentation
 - CI/CD with GitHub Actions
 - Comprehensive automated test coverage
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Why I Built This](#why-i-built-this)
+- [System Flow](#system-flow)
+- [Project Structure](#project-structure)
+- [Tech Stack](#tech-stack)
+- [API Documentation](#api-documentation)
+- [Running Locally](#running-locally)
+- [Running Tests](#running-tests)
+- [Screenshots](#application-screenshots)
+- [Design Decisions](#design-decisions)
+- [Future Improvements](#future-improvements)
+
 
 ## Overview
 
