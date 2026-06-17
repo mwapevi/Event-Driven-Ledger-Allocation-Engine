@@ -1,13 +1,20 @@
 # Event-Driven Ledger Allocation Engine
 
 ![Tests](https://github.com/mwapevi/Event-Driven-Ledger-Allocation-Engine/actions/workflows/test.yml/badge.svg)
-![Python](https://img.shields.io/badge/python-3.12-blue)
-![FastAPI](https://img.shields.io/badge/FastAPI-API-green)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Database-blue)
-![Coverage](https://img.shields.io/badge/coverage-100%25-brightgreen)
-![License](https://img.shields.io/badge/license-MIT-yellow)
+
 
 Backend system that processes incoming payment events and automatically allocates funds across internal ledger accounts.
+
+## Key Features
+
+- Event-driven webhook processing
+- Idempotent event handling
+- Automated ledger allocation
+- PostgreSQL persistence
+- RESTful API with FastAPI
+- Swagger/OpenAPI documentation
+- CI/CD with GitHub Actions
+- Automated test coverage
 
 ## Overview
 
@@ -55,31 +62,19 @@ I built this to understand how systems handle payment-like workflows where:
 ### Processing Pipeline
 
 ```text
-External Payment Provider
-           │
-           ▼
-Webhook Endpoint
-           │
-           ▼
-Signature Verification
-           │
-           ▼
-Idempotency Check
-           │
-           ▼
-Event Processor
-           │
-           ▼
-Allocation Engine
-           │
-           ▼
-Transfer Client
-           │
-           ▼
-Ledger Accounts
-           │
-           ▼
-Audit & Reconciliation Store
+External Provider
+        |
+        v
+   FastAPI API
+        |
+        v
+ Event Processor
+        |
+        +----> Idempotency Store
+        |
+        +----> Allocation Engine
+        |
+        +----> PostgreSQL
 ```
 
 ---
@@ -135,7 +130,7 @@ Audit & Reconciliation Store
     └── test-results
         └── Application_Status-Screenshots
         └── Database_Records-Screenshots
-        └── SwaggUI_Screenshots
+        └── SwaggerUI_Screenshots
   
 ```
 
@@ -181,13 +176,67 @@ All processed events and transfer outcomes are recorded to provide traceability 
 
 ## Example Event Payload
 
-```json
+```json request body
 {
   "event_type": "deposit",
-  "event_id": "evt_177",
+  "event_id": "evt_21000",
   "amount": 500000,
   "account_id": "clearing_123",
   "timestamp": "2026-06-12T10:00:00Z"
+}
+
+```json response body
+{
+  "event_id": "evt_21000",
+  "allocations": {
+    "ACCOUNT_A": 100000,
+    "ACCOUNT_B": 100000,
+    "ACCOUNT_C": 100000,
+    "ACCOUNT_D": 100000,
+    "ACCOUNT_E": 100000
+  },
+  "transfers": [
+    {
+      "account": "ACCOUNT_A",
+      "amount": 100000,
+      "transfer": {
+        "transfer_id": "8c60a6e9-8841-4a0f-bc88-73775c262d4b",
+        "status": "success"
+      }
+    },
+    {
+      "account": "ACCOUNT_B",
+      "amount": 100000,
+      "transfer": {
+        "transfer_id": "5e0aeba1-d63a-4587-8ebf-886bdaa81d84",
+        "status": "success"
+      }
+    },
+    {
+      "account": "ACCOUNT_C",
+      "amount": 100000,
+      "transfer": {
+        "transfer_id": "34d5141f-60cf-42db-aa86-30ede8b5c89c",
+        "status": "success"
+      }
+    },
+    {
+      "account": "ACCOUNT_D",
+      "amount": 100000,
+      "transfer": {
+        "transfer_id": "c6d5b16b-926b-499f-b296-d719b143e31c",
+        "status": "success"
+      }
+    },
+    {
+      "account": "ACCOUNT_E",
+      "amount": 100000,
+      "transfer": {
+        "transfer_id": "edc0690f-b93f-4f38-847b-a5319222a969",
+        "status": "success"
+      }
+    }
+  ]
 }
 
 ```
@@ -346,7 +395,9 @@ The allocation logic is isolated so that more sophisticated rules can be introdu
 
 Potential enhancements include:
 
-* Kafka-based event streaming
+* Authentication & Authorization
+* Logging Service
+* Notification service via Kafka-based event streaming
 * Change Data Capture (CDC) with Debezium
 * Redis distributed locking
 * Dead-letter queue support
@@ -358,6 +409,7 @@ Potential enhancements include:
 * Event sourcing patterns
 
 ---
+
 
 ## Disclaimer
 
@@ -371,7 +423,11 @@ It does not process real funds, connect to banking networks, or interact with pr
 
 **Victor Mwape**
 
-Backend Engineer with a focus on API integrations, event-driven architectures, fintech infrastructure, distributed systems, scalable backend services, and data pipelines.
+GitHub: [mwapevi](https://github.com/mwapevi)
 
-GitHub: https://github.com/mwapevi
-
+Areas of Interest:
+- Backend Engineering
+- Fintech Infrastructure
+- Event-Driven Systems
+- API Integrations
+- Data Engineering
