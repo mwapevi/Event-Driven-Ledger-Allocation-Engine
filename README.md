@@ -89,6 +89,7 @@ External Provider
 ├── requirements.txt
 ├── docker-compose.yml
 ├── Dockerfile
+├── LICENCE
 │
 ├── app/
 │   ├── main.py
