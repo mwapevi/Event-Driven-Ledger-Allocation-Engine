@@ -1,7 +1,6 @@
 # Event-Driven Ledger Allocation Engine
 
 ![Tests](https://github.com/mwapevi/Event-Driven-Ledger-Allocation-Engine/actions/workflows/test.yml/badge.svg)
-
 ![License](https://img.shields.io/badge/license-MIT-green)
 
 
