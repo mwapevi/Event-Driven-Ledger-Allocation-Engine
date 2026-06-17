@@ -1,7 +1,7 @@
 # Event-Driven Ledger Allocation Engine
 
 ![Tests](https://github.com/mwapevi/Event-Driven-Ledger-Allocation-Engine/actions/workflows/test.yml/badge.svg)
-![License](https://img.shields.io/badge/license-MIT-green)
+![License](https://img.shields.io/github/license/mwapevi/Event-Driven-Ledger-Allocation-Engine)
 
 
 Backend system that processes incoming payment events and automatically allocates funds across internal ledger accounts.
