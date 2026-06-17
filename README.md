@@ -178,10 +178,15 @@ All processed events and transfer outcomes are recorded to provide traceability 
 
 http://127.0.0.1:8000/docs
 
-POST /webhook/column
+### Endpoint
 
-Request Body:
+```http
+POST /webhook/events
+```
 
+### Request Body
+
+```json
 {
   "event_type": "deposit",
   "event_id": "evt_21000",
@@ -189,11 +194,11 @@ Request Body:
   "account_id": "clearing_123",
   "timestamp": "2026-06-12T10:00:00Z"
 }
+```
 
-Response Body:
+### Response (200 OK)
 
-Response (200 OK)
-
+```json
 {
   "event_id": "evt_21000",
   "allocations": {
@@ -245,45 +250,6 @@ Response (200 OK)
       }
     }
   ]
-}
-
----
-
-## Allocation Example
-
-Incoming Amount:
-
-```text
-500,000 ZMW
-```
-
-Default Allocation Rule:
-
-```text
-Account A → 100,000
-Account B → 100,000
-Account C → 100,000
-Account D → 100,000
-Account E → 100,000
-```
-
-If a remainder exists during division, it is assigned to the first account.
-
----
-
-## API Endpoints
-
-### Health Check
-
-```http
-GET /health
-```
-
-Response:
-
-```json
-{
-  "status": "healthy"
 }
 ```
 

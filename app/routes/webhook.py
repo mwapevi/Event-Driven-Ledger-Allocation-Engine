@@ -17,7 +17,7 @@ def get_db():
     finally:
         db.close()
 
-@router.post("/column")
+@router.post("/events")
 def column_webhook(
     payload: ColumnWebhook,
     db: Session = Depends(get_db)
