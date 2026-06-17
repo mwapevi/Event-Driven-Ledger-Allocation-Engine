@@ -17,6 +17,18 @@ Backend system that processes incoming payment events and automatically allocate
 - CI/CD with GitHub Actions
 - Comprehensive automated test coverage
 
+## Quick Start
+
+```bash
+docker-compose up --build
+```
+
+Open:
+
+```text
+http://localhost:8000/docs
+```
+
 ## Table of Contents
 
 - [Overview](#overview)
@@ -24,6 +36,7 @@ Backend system that processes incoming payment events and automatically allocate
 - [System Flow](#system-flow)
 - [Project Structure](#project-structure)
 - [Tech Stack](#tech-stack)
+- [Key Components](#key-components)
 - [API Documentation](#api-documentation)
 - [Running Locally](#running-locally)
 - [Running Tests](#running-tests)
@@ -191,9 +204,7 @@ All processed events and transfer outcomes are recorded to provide traceability 
 
 ---
 
-## Example Event Payload
-
-## API Documentation
+## API Documentation and Example Payload
 
 Available locally after startup:
 
