@@ -14,7 +14,7 @@ Backend system that processes incoming payment events and automatically allocate
 - RESTful API with FastAPI
 - Swagger/OpenAPI documentation
 - CI/CD with GitHub Actions
-- Automated test coverage
+- Comprehensive automated test coverage
 
 ## Overview
 
@@ -42,9 +42,9 @@ Many payment systems receive funds into a central account before distributing th
 
 I built this to understand how systems handle payment-like workflows where:
 
-- events can be retried
-- delivery is not guaranteed exactly once
-- processing must remain consistent even when duplicates occur
+- Events may be retried by providers.
+- Delivery is typically at-least-once rather than exactly-once.
+- Processing must remain consistent even when duplicates occur.
 
 ---
 
@@ -176,7 +176,10 @@ All processed events and transfer outcomes are recorded to provide traceability 
 
 ## Example Event Payload
 
-```json
+POST /webhook/column
+
+Request Body:
+
 {
   "event_type": "deposit",
   "event_id": "evt_21000",
@@ -185,7 +188,10 @@ All processed events and transfer outcomes are recorded to provide traceability 
   "timestamp": "2026-06-12T10:00:00Z"
 }
 
-response body
+Response Body:
+
+Response (200 OK)
+
 {
   "event_id": "evt_21000",
   "allocations": {
@@ -238,8 +244,6 @@ response body
     }
   ]
 }
-
-```
 
 ---
 
